@@ -5,41 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Loja de Sapatos</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Loja de Sapatos - Os melhores modelos de calçados para todos os estilos!">
+    <meta name="keywords" content="sapatos, tênis, calçados, moda, loja de sapatos">
+    <meta name="author" content="Loja de Sapatos">
+    <meta property="og:title" content="Loja de Sapatos - Seu Estilo Começa Aqui!">
+    <meta property="og:description" content="Encontre os melhores calçados com conforto e estilo.">
+    <meta property="og:image" content="URL_DA_IMAGEM_DO_SITE">
+    <meta property="og:url" content="URL_DO_SITE">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
+
 <body>
-    <header>
-        <h1>Loja de Sapatos</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="sobre.html">Sobre nós</a>
-            <a href="contact.html">Contato</a>
-        </nav>
-    </header>
 
     <main>
         <section id="contact">
             <h2>Entre em Contato</h2>
             <p>Tem alguma dúvida ou sugestão? Envie-nos uma mensagem!</p>
-
             <form id="contact-form">
                 <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
-
+                <input type="text" id="name" name="name" required aria-label="Nome Completo">
+            
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-
+                <input type="email" id="email" name="email" required aria-label="Endereço de e-mail">
+            
                 <label for="message">Mensagem:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Enviar</button>
+                <textarea id="message" name="message" rows="5" required aria-describedby="message-help"></textarea>
+                <small id="message-help">Escreva sua mensagem para nós.</small>
+            
+                <button type="submit" aria-label="Enviar Mensagem">Enviar</button>
             </form>
+            
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Loja de Sapatos</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalPrice = document.getElementById("modal-product-price");
     const closeModal = document.querySelector(".close-btn");
     const colorOptions = document.getElementById("color-options");
+    const contactForm = document.getElementById("contact-form");
 
     // Dados fictícios para trocar as cores
     const productColors = {
@@ -90,4 +91,37 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "none";
         }
     });
+
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => document.body.insertAdjacentHTML("afterbegin", data));
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => document.body.insertAdjacentHTML("beforeend", data));
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                const submitButton = contactForm.querySelector("button");
+                submitButton.innerHTML = "Eviando...";
+                submitButton.disabled = true;
+
+                setTimeout(() => {
+                    alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso.`);
+                    contactForm.reset();
+                    submitButton.innerHTML = "Enviar";
+                    submitButton.disabled = false;
+                }, 2000);
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
+        });
+    }
 });
